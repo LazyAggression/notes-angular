@@ -58,7 +58,10 @@
       <button
         class="login100-form-btn"
         type="submit"
-        [disabled]="myRegisterForm.invalid"
+        [disabled]="!myRegisterForm.valid"
+        [ngStyle]="{
+          'background-color': myRegisterForm.valid ? 'black' : 'gray'
+        }"
       >
         Register
       </button>
@@ -71,5 +74,3 @@
     <a routerLink="/auth/login" class="txt2"> Login here </a>
   </div>
 </form>
-
-<pre>{{ myRegisterForm.value | json }}</pre>
