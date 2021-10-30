@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth/services/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.sass'],
+  selector: 'protected-main',
+  templateUrl: './protected-main.component.html',
+  styleUrls: ['./protected-main.component.sass'],
 })
-export class DashboardComponent {
+export class ProtectedMainComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   get user() {

@@ -1,0 +1,5 @@
+<div *ngFor="let note of notes">
+  {{ note.title }}
+  <button (click)="deleteNote(note.note_id)">Delete</button>
+  <a [routerLink]="['/notes/update', note.note_id]"> Update Note </a>
+</div>

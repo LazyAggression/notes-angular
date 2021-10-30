@@ -2,16 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProtectedRoutingModule } from './protected-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { ProtectedMainComponent } from './pages/protected-main/protected-main.component';
+import { NotesComponent } from './pages/notes/notes.component';
+import { AddNoteComponent } from './pages/add-note/add-note.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateNoteComponent } from './pages/update-note/update-note.component';
 
 @NgModule({
-  declarations: [
-    DashboardComponent
-  ],
-  imports: [
-    CommonModule,
-    ProtectedRoutingModule
-  ]
+  declarations: [ProtectedMainComponent, NotesComponent, AddNoteComponent, UpdateNoteComponent],
+  imports: [CommonModule, ProtectedRoutingModule, ReactiveFormsModule],
 })
-export class ProtectedModule { }
+export class ProtectedModule {}

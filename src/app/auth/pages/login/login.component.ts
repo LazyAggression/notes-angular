@@ -17,16 +17,16 @@ export class LoginComponent {
     private authService: AuthService
   ) {}
 
-  myForm: FormGroup = this.fb.group({
+  myLoginForm: FormGroup = this.fb.group({
     username: ['tom.cruise', [Validators.required]],
     password: ['qwerty12345', [Validators.required]],
   });
 
-  login() {
-    const { username, password } = this.myForm.value;
+  onSubmit() {
+    const { username, password } = this.myLoginForm.value;
     this.authService.login(username, password).subscribe((resp) => {
       if (resp) {
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/notes');
       } else {
         Swal.fire('Your credentials are incorrect.');
       }

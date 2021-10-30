@@ -38,6 +38,25 @@ export class AuthService {
     );
   }
 
+  register(username: string, password: string, name: string, email: string) {
+    const url = `${this.baseUrl}/auth/signup`;
+    const body = { username, password, name, email };
+    return this.http.post<AuthResponse>(url, body).pipe(
+      tap((resp) => {
+        if (resp.accessToken) {
+          localStorage.setItem('accessToken', resp.accessToken);
+          this._user = {
+            name: resp.name!,
+            user_id: resp.user_id!,
+            username: resp.username!,
+          };
+        }
+      }),
+      map((resp) => true),
+      catchError((err) => of(false))
+    );
+  }
+
   validateToken() {
     const url = `${this.baseUrl}/auth/validate`;
     const headers = new HttpHeaders({

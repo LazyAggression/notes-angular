@@ -1,0 +1,23 @@
+<form [formGroup]="updateNoteForm" (ngSubmit)="onSubmit()">
+  <div>
+    <span>Title</span>
+    <input
+      formControlName="title"
+      name="title"
+      placeholder="Title of your note"
+    />
+    <span></span>
+  </div>
+
+  <div>
+    <span>Content</span>
+    <input
+      formControlName="content"
+      name="content"
+      placeholder="Your note..."
+    />
+    <span></span>
+  </div>
+
+  <button type="submit">Update Note</button>
+</form>
